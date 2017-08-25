@@ -87,15 +87,21 @@ class ProfileScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={[styles.containerMap]}>
-      <MapView style={styles.map}
-    region={{
-      latitude: 37.78825,
-      longitude: -122.4324,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    }}
-  />
+      <View style={[styles.container]}>
+      <Text style={[styles.contactName]}> {this.props.navigation.state.params.first} {this.props.navigation.state.params.last} </Text>
+      <Text style={[styles.contactDetails]}> {this.props.navigation.state.params.number} </Text>
+      <Button 
+      title="Edit Contact" 
+      onPress={() =>
+        navigate('Edit', this.props.navigation.state.params)
+      }
+      />
+      <Button 
+      title="View Location" 
+      onPress={() =>
+        navigate('Map', this.props.navigation.state.params)
+      }
+      />
       </View>
     );
   }
@@ -141,6 +147,33 @@ class EditScreen extends Component {
       />
       </View>
     );
+  }
+}
+
+// MapScreen: shows contact's location (currently shows San Francisco)
+class MapScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.navigation.state;
+  }
+
+  static navigationOptions = ({navigation}) => ({
+    title: 'Location',
+  });
+
+  render() {
+    return(
+      <View style={[styles.containerMap]}>
+      <MapView style={[styles.map]}
+        region={{
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+        }}
+      />
+      </View>
+    )
   }
 }
 
@@ -195,6 +228,12 @@ let AppScenes = {
   ProfileScreen: {
     screen: ProfileScreen
   },
+  EditScreen: {
+    screen: EditScreen
+  },
+  MapScreen: {
+    screen: MapScreen
+  },
 }
 
 // MyTransition: custom transition
@@ -244,7 +283,8 @@ const help = StackNavigator(
   {
     Home: { screen: HomeScreen },
     Profile: { screen: ProfileScreen },
-    Edit: {screen: EditScreen },
+    Edit: { screen: EditScreen },
+    Map: { screen: MapScreen },
   },
   {
     transitionConfig: TransitionConfiguration
