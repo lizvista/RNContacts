@@ -25,26 +25,23 @@ export class ProfileScreen extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const args = { number: this.props.navigation.state.params.number };
-    //const { first }    = this.props.navigation.state.params.first;
-    //const { last }     = this.props.navigation.state.params.last;
-    //const { number }   = this.props.navigation.state.params.number;
+    const { params } = this.props.navigation.state;
     return (
       <View style={[styles.container]}>
-        <Text style={[styles.contactName]}> { this.props.navigation.state.params.first } { this.props.navigation.state.params.last } </Text>
-        <Text style={[styles.contactDetails]}> { this.props.navigation.state.params.number } { "\n" } </Text>
+        <Text style={[styles.contactName]}> { params.first } { params.last } </Text>
+        <Text style={[styles.contactDetails]}> { params.number } { "\n" } </Text>
         <Button 
           style={[styles.button]}
           title="Edit Contact" 
           onPress={() =>
-            navigate('Edit', this.props.navigation.state.params)
+            navigate('Edit', params)
           }
         />
         <Button 
           style={[styles.button]}
           title="View Location" 
           onPress={() =>
-            navigate('Map', this.props.navigation.state.params)
+            navigate('Map', params)
           }
         />
         <TouchableHighlight onPress={() => call(args).catch(console.error)}>

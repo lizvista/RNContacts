@@ -27,10 +27,10 @@ import { styles } from './Components/stylesheet.js';
 import { TransitionConfiguration } from './Components/Transition.js'
 
 // initialize contacts data in AsyncStorage
-AsyncStorage.setItem('Jane', JSON.stringify({'title': 'Jane', 'first': 'Jane', 'last': 'Vista', 'number': '(210) 461-7186', latitude: 33.9961, longitude: -81.0274}))
-AsyncStorage.setItem('Drew', JSON.stringify({'title': 'Drew', 'first': 'Andrew', 'last': 'Vista', 'number': '(210) 725-5384', latitude: 36.003478, longitude: -78.935810}))
-AsyncStorage.setItem('Mom', JSON.stringify({'title': 'Mom', 'first': 'Emily', 'last': 'Vista', 'number': '(210) 367-7056', latitude: 35.7915, longitude: -78.7811}))
-AsyncStorage.setItem('Dad', JSON.stringify({'title': 'Dad', 'first': 'Jeff', 'last': 'Vista', 'number': '(919) 867-1134', latitude: 36.007840, longitude: -78.938019}))
+AsyncStorage.setItem('Jane', JSON.stringify({'title': 'Jane', 'first': 'Jane', 'last': 'Vista', 'number': '(210) 461-7186', address: 'University of South Carolina'}))
+AsyncStorage.setItem('Drew', JSON.stringify({'title': 'Drew', 'first': 'Andrew', 'last': 'Vista', 'number': '(210) 725-5384', address: 'Duke University'}))
+AsyncStorage.setItem('Mom', JSON.stringify({'title': 'Mom', 'first': 'Emily', 'last': 'Vista', 'number': '(210) 367-7056', address: '123 Maltland Dr Cary, NC 27518'}))
+AsyncStorage.setItem('Dad', JSON.stringify({'title': 'Dad', 'first': 'Jeff', 'last': 'Vista', 'number': '(919) 867-1134', address: 'Duke Hospital'}))
 
 const help = StackNavigator(
   {
@@ -43,5 +43,6 @@ const help = StackNavigator(
     transitionConfig: TransitionConfiguration
   }
 );
+
 
 AppRegistry.registerComponent('help', () => help);
