@@ -1,12 +1,31 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  AsyncStorage,
+  Easing,
+  Animated,
+  Alert,
+} from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import { styles } from './stylesheet.js';
+
 // AddScreen: not yet implemented, will allow user to create a new contact
-/*class AddScreen extends Component {
+export class AddScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = this.props.navigation.state;
-    var title;
-    var first;
-    var last;
-    var number;
+    this.state = {
+      title: '',
+      first: '',
+      last: '',
+      number: '',
+      address: '',
+    }
   }
 
   static navigationOptions = ({navigation}) => ({
@@ -14,29 +33,48 @@
   });
 
   render() {
+    const { goBack } = this.props.navigation;
     return(
       <View style={[styles.container]}>
       <Text> Nickname: </Text>
       <TextInput
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(title) => this.setState({title})}
         value={this.state.title}
       />
       <Text> First Name: </Text>
       <TextInput
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.title}
+        onChangeText={(first) => this.setState({first})}
+        value={this.state.first}
       />
       <Text> Last Name: </Text>
       <TextInput
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.title}
+        onChangeText={(last) => this.setState({last})}
+        value={this.state.last}
       />
       <Text> Number: </Text>
       <TextInput
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.title}
+        onChangeText={(number) => this.setState({number})}
+        value={this.state.number}
+      />
+      <Button
+      title="Save" 
+      onPress={() => {
+        const { refresh } = this.props.navigation.state.params;
+        AsyncStorage.setItem(this.state.title, JSON.stringify({'first': this.state.first, 'last': this.state.last, 'number': this.state.number}))
+        AsyncStorage.getItem(this.state.title, (err, item) => { 
+          if (!err) {
+            Alert.alert('Saved', 'Contact Created');
+            refresh();
+          } 
+          else {
+            Alert.alert('Error', 'Changes Not Saved');
+          }
+          goBack();
+         // (!err) ? (Alert.alert('Saved', 'Contact Created')) : ((Alert.alert('Error', 'Changes Not Saved'))) , goBack() 
+        } ) 
+      } }
       />
       </View>
     );
   }
-}*/
+}
