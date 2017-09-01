@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import { styles } from './stylesheet.js';
 import call from 'react-native-phone-call';
+import Communications from 'react-native-communications';
 
 // ProfileScreen: shows first name, last name, and phone number of contact
 // navigation available to EditScreen & MapScreen
@@ -58,7 +59,6 @@ export class ProfileScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { profile } = this.state;
-    console.log(this.state);
     return (
       <View style={[styles.container]}>
         <Text style={[styles.contactName]}> { profile.first } { profile.last } </Text>
@@ -76,12 +76,20 @@ export class ProfileScreen extends Component {
             navigate('Map', profile)
           }
         />
-        <TouchableHighlight onPress={() => call(args).catch(console.error)}>
-          <Image 
-            style={[styles.img]}
-            source={require('./img/callButton.png')}
-          />
-        </TouchableHighlight>
+        <View style={[styles.rowContainer]}>
+          <TouchableHighlight onPress={() => call({number: profile.number}).catch(console.error)}>
+            <Image 
+              style={[styles.img]}
+              source={require('./img/callButton.png')}
+            />
+          </TouchableHighlight>
+         <TouchableHighlight onPress={() => Communications.text(profile.number)}>
+           <Image 
+             style={[styles.img]}
+             source={require('./img/smsButton.png')}
+           />
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }

@@ -4,6 +4,9 @@ export var styles = StyleSheet.create({
   container: {
     margin: 20,
   },
+  rowContainer: {
+    flexDirection: 'row',
+  },
   contactName: {
     fontSize: 20,
     fontWeight: 'bold',
