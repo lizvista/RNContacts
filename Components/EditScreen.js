@@ -21,7 +21,6 @@ export class EditScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
       first: '',
       last: '',
       number: '',
@@ -40,7 +39,7 @@ export class EditScreen extends Component {
   render() {
     const { goBack } = this.props.navigation;
     const { profile } = this.props.navigation.state.params;
-    console.log(this.state);
+    console.log(profile);
     return(
       <View style={[styles.container]}>
       <Text> Nickname: {profile.title} {"\n"}</Text>
@@ -62,15 +61,21 @@ export class EditScreen extends Component {
         value={this.state.number}
         defaultValue={profile.number}
       />
+      <Text> Address: </Text>
+      <TextInput
+        onChangeText={(address) => this.setState({address})}
+        value={this.state.address}
+        defaultValue={profile.address}
+      />
       <Button
       title="Save" 
       onPress={() => {
         const { refresh } = this.props.navigation.state.params;
         console.log(this.state);
-        AsyncStorage.setItem(profile.title, JSON.stringify({'first': this.state.first, 'last': this.state.last, 'number': this.state.number}));
+        AsyncStorage.setItem(profile.title, JSON.stringify({'first': this.state.first, 'last': this.state.last, 'number': this.state.number, 'address': this.state.address}));
         AsyncStorage.getItem(profile.title, (err, item) => { 
           if (!err) {
-            Alert.alert('Saved', 'Contact Created');
+            Alert.alert('Saved', 'Changes Saved');
             refresh();
           } 
           else {

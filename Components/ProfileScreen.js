@@ -33,11 +33,12 @@ export class ProfileScreen extends Component {
   }
 
   static navigationOptions = ({navigation}) => ({
-    title: navigation.state.params.title,
+    title: navigation.state.params.name,
   });
 
   getProfile = (title) => {
     AsyncStorage.getItem(title, (err, item) => {
+      console.log(item);
       let profile = JSON.parse(item);
       this.setState({profile});
     });
@@ -57,10 +58,12 @@ export class ProfileScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { profile } = this.state;
+    console.log(this.state);
     return (
       <View style={[styles.container]}>
         <Text style={[styles.contactName]}> { profile.first } { profile.last } </Text>
-        <Text style={[styles.contactDetails]}> { profile.number } { "\n" } </Text>
+        <Text style={[styles.contactDetails]}> { profile.number } </Text>
+        <Text style={[styles.contactDetails]}> { profile.address } { "\n" } </Text>
         <Button 
           style={[styles.button]}
           title="Edit Contact" 

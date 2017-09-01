@@ -56,11 +56,22 @@ export class AddScreen extends Component {
         onChangeText={(number) => this.setState({number})}
         value={this.state.number}
       />
+      <Text> Address: </Text>
+      <TextInput
+        onChangeText={(address) => this.setState({address})}
+        value={this.state.address}
+      />
       <Button
       title="Save" 
       onPress={() => {
         const { refresh } = this.props.navigation.state.params;
-        AsyncStorage.setItem(this.state.title, JSON.stringify({'first': this.state.first, 'last': this.state.last, 'number': this.state.number}))
+        AsyncStorage.setItem(this.state.title, JSON.stringify({
+          'title': this.state.title, 
+          'first': this.state.first, 
+          'last': this.state.last, 
+          'number': this.state.number, 
+          'address': this.state.address
+        }))
         AsyncStorage.getItem(this.state.title, (err, item) => { 
           if (!err) {
             Alert.alert('Saved', 'Contact Created');
