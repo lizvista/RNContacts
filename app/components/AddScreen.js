@@ -13,7 +13,7 @@ import {
   Alert,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { styles } from './stylesheet.js';
+import { styles } from '../config/stylesheet.js';
 
 // AddScreen: allows user to create a new contact
 export class AddScreen extends Component {

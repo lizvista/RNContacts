@@ -13,7 +13,7 @@ import {
   Animated,
   TouchableHighlight,
 } from 'react-native';
-import { styles } from './stylesheet.js';
+import { styles } from '../config/stylesheet.js';
 
 export class HomeScreen extends Component {
   constructor(props) {

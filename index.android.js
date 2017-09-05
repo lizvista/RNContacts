@@ -24,8 +24,8 @@ import { ProfileScreen } from './app/components/ProfileScreen.js';
 import { EditScreen } from './app/components/EditScreen.js';
 import { MapScreen } from './app/components/MapScreen.js';
 import { AddScreen } from './app/components/AddScreen.js';
-import { styles } from './app/components/stylesheet.js';
-import { TransitionConfiguration } from './app/components/Transition.js';
+import { styles } from './app/config/stylesheet.js';
+import { TransitionConfiguration } from './app/config/Transition.js';
 
 
 

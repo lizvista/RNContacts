@@ -13,7 +13,7 @@ import {
   Alert,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { styles } from './stylesheet.js';
+import { styles } from '../config/stylesheet.js';
 
 // EditScreen: allows user to modify first name, last name, and phone number of contact
 export class EditScreen extends Component {

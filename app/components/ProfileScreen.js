@@ -13,7 +13,7 @@ import {
   TouchableHighlight,
   Image,
 } from 'react-native';
-import { styles } from './stylesheet.js';
+import { styles } from '../config/stylesheet.js';
 import call from 'react-native-phone-call';
 import Communications from 'react-native-communications';
 
@@ -80,13 +80,13 @@ export class ProfileScreen extends Component {
           <TouchableHighlight onPress={() => call({number: profile.number}).catch(console.error)}>
             <Image 
               style={[styles.img]}
-              source={require('./img/callButton.png')}
+              source={require('../images/callButton.png')}
             />
           </TouchableHighlight>
          <TouchableHighlight onPress={() => Communications.text(profile.number)}>
            <Image 
              style={[styles.img]}
-             source={require('./img/smsButton.png')}
+             source={require('../images/smsButton.png')}
            />
           </TouchableHighlight>
         </View>
