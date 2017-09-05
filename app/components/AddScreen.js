@@ -15,7 +15,7 @@ import {
 import { StackNavigator } from 'react-navigation';
 import { styles } from './stylesheet.js';
 
-// AddScreen: not yet implemented, will allow user to create a new contact
+// AddScreen: allows user to create a new contact
 export class AddScreen extends Component {
   constructor(props) {
     super(props);

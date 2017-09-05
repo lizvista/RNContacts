@@ -19,13 +19,13 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import MapView from 'react-native-maps';
-import { HomeScreen } from './Components/HomeScreen.js';
-import { ProfileScreen } from './Components/ProfileScreen.js';
-import { EditScreen } from './Components/EditScreen.js';
-import { MapScreen } from './Components/MapScreen.js';
-import { AddScreen } from './Components/AddScreen.js';
-import { styles } from './Components/stylesheet.js';
-import { TransitionConfiguration } from './Components/Transition.js';
+import { HomeScreen } from './app/components/HomeScreen.js';
+import { ProfileScreen } from './app/components/ProfileScreen.js';
+import { EditScreen } from './app/components/EditScreen.js';
+import { MapScreen } from './app/components/MapScreen.js';
+import { AddScreen } from './app/components/AddScreen.js';
+import { styles } from './app/components/stylesheet.js';
+import { TransitionConfiguration } from './app/components/Transition.js';
 
 
 

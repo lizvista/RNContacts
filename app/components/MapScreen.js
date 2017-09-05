@@ -13,8 +13,8 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 //import Geocoder from 'react-native-geocoding';
-import { getLocation } from './LocationServices.js';
-import { styles } from './stylesheet.js';
+import { getLocation } from './app/components/LocationServices.js';
+import { styles } from './app/components/stylesheet.js';
 
 
 // MapScreen: shows contact's location (currently shows San Francisco

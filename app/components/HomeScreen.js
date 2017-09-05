@@ -38,6 +38,8 @@ export class HomeScreen extends Component {
     console.log('here');
   }
 
+  // function passed as parameter to AddScreen
+  // triggers refresh of HomeScreen after a new contact is added to update list
   refreshContactsOnGoBack = () => {
     this.props.navigation.navigate(
       'Add', 
